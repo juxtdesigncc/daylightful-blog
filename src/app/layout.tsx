@@ -1,18 +1,33 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
+import { Bounded } from "@/components/common/Bounded";
 import config from "../../config";
+import { IBM_Plex_Sans_JP } from "next/font/google";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+import "./globals.css";
+import Footer from "@/components/footer";
+
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
+
+// const bricolage = Bricolage_Grotesque({
+//   subsets: ["latin"],
+//   variable: "--font-bricolage",
+//   weight: ["400", "600"],
+// });
+
+const ibmPlexSansJP = IBM_Plex_Sans_JP({
+  subsets: ["latin"],
+  variable: "--font-plex-sans-jp",
+  weight: ["400", "600"],
 });
 
 export const metadata: Metadata = {
@@ -49,10 +64,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${ibmPlexSansJP.className} bg-white antialiased text-black`}>
+        <Bounded as="section" size="widest">
+          <main className="col-span-2 p-4">{children}</main>
+          <Footer />
+        </Bounded>
       </body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_MEASUREMENT_ID!} />
     </html>

@@ -1,8 +1,5 @@
 @import 'tailwindcss';
-
-@utility text-balance {
-  text-wrap: balance;
-}
+@plugin "@tailwindcss/typography";
 
 @layer utilities {
   :root {
@@ -20,7 +17,7 @@
   body {
     color: var(--foreground);
     background: var(--background);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'IBM Plex Sans JP', Inter, Geist, Helvetica, sans-serif;
   }
 }
 
