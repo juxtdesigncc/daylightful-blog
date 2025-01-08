@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 
 import { getPosts } from "@/lib/utils";
 import { SingleBlog } from "@/components/SingleBlog";
+import config from "../../config";
 
 export default function Home() {
   const posts = getPosts();
@@ -14,9 +15,11 @@ export default function Home() {
       <header className="my-24 md:my-60">
         <div className="flex flex-col items-center gap-10 text-center">
           <h1 className="text-4xl text-pretty font-bold tracking-tighter text-black md:text-6xl">
-            Stories, thoughts and reflection about design 香港
+            {config.SITE_TITLE}
           </h1>
-          <h2 className="text-2xl text-pretty tracking-tighter text-black md:text-2xl">讓你在香港生活更簡單</h2>
+          <h2 className="text-2xl text-pretty tracking-tighter text-black md:text-2xl">
+            {config.SEO_DESCRIPTION}
+          </h2>
           <div className="mt-4">
             <input
               type="email"

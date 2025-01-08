@@ -1,12 +1,13 @@
 module.exports = {
   POSTS_PER_PAGE: 6,
   DATE_FORMAT: "LLLL d, yyyy",
-  DOMAIN: "https://juxtdesign.cc/",
+  DOMAIN: "https://daylightful.cc/",
   DEFAULT_SOCIAL_IMAGE: "static/og.png",
-  SITE_TITLE: "JUXT DESIGN",
+  AUTHOR: "Daylightful",
+  SITE_TITLE: "Daylightful：生活、科技、設計",
   SEO_DESCRIPTION: "Discover the best design resources, figma template, articles for free. Make your design to the next level.",
-  SEO_KEYWORDS: "UX Design, Figma, Product Design, Design Community, UI, Sketch,CSS, Design",
-  X_HANDLE: "@juxtdesigncc",
+  SEO_KEYWORDS: "Hong Kong, Life Hacks, Productivity, Design, Tech, Finance, Investment",
+  X_HANDLE: "@daylightful_cc",
   X_ID: "1289809233488183296",
   MENU: [
     {

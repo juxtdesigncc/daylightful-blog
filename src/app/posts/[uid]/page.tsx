@@ -11,6 +11,7 @@ import { getPosts } from "@/lib/utils";
 
 import { siteUrl } from "../../../../next-sitemap.config";
 import sitemapConfig from "../../../../next-sitemap.config";
+import config from "../../../../config"
 
 function capitalizeWords(str: string) {
   return str
@@ -40,7 +41,7 @@ export default async function Blog({
     dateModified: post.metadata.date,
     author: {
       "@type": "Person",
-      name: "Day",
+      name: config.AUTHOR,
     },
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -99,6 +100,7 @@ export function generateMetadata({ params }: { params: { uid: string } }) {
     date: publishedTime,
     description: metaDescription, // Rename to avoid conflict with local variable
     socialImage: image,
+    tags,
   } = post.metadata;
 
   const excerpt = getExcerpt(post.content, 300); // Renamed variable to avoid conflict
@@ -109,6 +111,8 @@ export function generateMetadata({ params }: { params: { uid: string } }) {
   return {
     title,
     description: excerpt || metaDescription, // Use excerpt if available, otherwise use metaDescription
+    keywords: tags.join(", ") + ", " + config.SEO_KEYWORDS,
+    canonical: `${siteUrl}/blog/${post.uid}`,
     openGraph: {
       title,
       description: excerpt || metaDescription, // Use excerpt if available, otherwise use metaDescription
